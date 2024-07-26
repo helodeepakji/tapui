@@ -51,7 +51,10 @@
                 </div>
                 <div class="center">
                     <img src="images/coin.png" class="coinimg" alt="">
-                    <img src="images/Avtar.png" class="Avtar" alt="">
+                    <div id="shadow">
+                       
+                    </div>
+                    <img src="images/Avtar.png" class="Avtar"  alt="">
                 </div>
                 <div class="pro-bar">
                     <div class="text">500 / 500 <img src="images/flash.png" alt=""></div>
@@ -62,7 +65,10 @@
 
             </div>
             <div class="content content2 container-sm">
+                <img src="images/bottom_menu.png" class="bottom-menu" alt="">
+                <div class="progress">
 
+                </div>
             </div>
         </div>
     </div>
@@ -97,6 +103,17 @@
             position: absolute;
             left: 100px;
             width: 200px;
+        }
+
+        #shadow {
+            margin-top: -135px;
+            border-radius: 50%;
+            width: 270px;
+            height: 150px;
+            background: black;
+            opacity: 0.5;
+            -webkit-filter: blur(10px);
+            -webkit-transform: scale(1, 0.2);
         }
 
         .box {
@@ -168,9 +185,21 @@
         }
 
         .content2 {
-            height: 100px;
+            height: 105px;
             margin-top: -4px;
+            align-items: center;
+        }
 
+        .bottom-menu {
+            height: 55px;
+            width: 366px;
+            margin: 15px;
+        }
+
+        .content2 .progress {
+            background-color: whitesmoke;
+            width: 120px;
+            height: 4px;
         }
 
         .pro-bar {
@@ -178,13 +207,13 @@
             text-align: center;
         }
 
-        .pro-bar .text{
+        .pro-bar .text {
             padding: 15px;
             font-weight: 600;
             text-align: center;
         }
 
-        .pro-bar .text img{
+        .pro-bar .text img {
             margin: 0 15px;
             width: 20px;
         }
