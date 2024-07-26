@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Referrals Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 20px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Exo 2', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        position: relative;
+      }
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background-color: #693c94;
+        max-width: 430px;
+        top: 1.8%;
+        border-radius: 25px;
+        padding: 16px;
+      }
+      .container {
+        max-width: 430px;
+        width: 100%;
+        background-color: #0f0a28;
+        padding: 16px 16px 100px 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 25px;
+        overflow: hidden;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .header-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .header {
+        text-align: center;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .header h1 {
+        font-size: 45px;
+        margin-bottom: 4px;
+        color: #fff;
+        display: flex;
+        margin-left: 10px;
+      }
+      .header-container h2 {
+        font-size: 30px;
+        color: #fff;
+        margin: 20px 0;
+      }
+      .list-tile {
+        position: relative;
+        width: 100%;
+        padding: 25px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(to left, #693c94, #d997fe, #693c94);
+        border-radius: 25px;
+      }
+      .title-subtitle {
+        z-index: 1;
+      }
+      .title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        color: #fff;
+        text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #ffff;
+        text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .circle {
+        position: absolute;
+        background-color: #e0e0e0;
+        border-radius: 50%;
+        z-index: 0;
+      }
+      .circle.top-left {
+        width: 60px;
+        height: 60px;
+        top: -10px;
+        left: -10px;
+      }
+      .circle.top-right {
+        width: 60px;
+        height: 60px;
+        top: -20px;
+        right: 0px;
+      }
+      .circle.middle {
+        width: 50px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .coin-img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .copy-button-bg {
+        background-image: linear-gradient(to bottom, #ffce56 20%, #e59500 80%);
+        border-radius: 14px;
+      }
+
+      .copy-button {
+        position: relative;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 16px;
+        color: #fce59f;
+        cursor: pointer;
+        overflow: hidden;
+        transition: color 0.3s, background-color 0.3s;
+        margin: 5px;
+        background-image: linear-gradient(to bottom, #ffd673 20%, #ffc431 80%);
+      }
+
+      .copy-button span {
+        text-shadow: 1px 1px 0 #e59500, -1px -1px 0 #e59500, 1px -1px 0 #e59500,
+          -1px 1px 0 #e59500, 1px 0 0 #e59500, -1px 0 0 #e59500, 0 1px 0 #e59500,
+          0 -1px 0 #e59500;
+      }
+
+      .profile-card {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .profile-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 18px;
+        background: linear-gradient(
+          to bottom,
+          rgba(82, 64, 105, 0.8) 30%,
+          rgba(82, 64, 105, 0.8) 60%,
+          rgba(41, 25, 66, 0.8) 100%
+        );
+        border-radius: 30px;
+      }
+
+      .number {
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .circular-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .profile-title {
+        flex: 1;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .right-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .coin-image-card {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+      }
+
+      h4 {
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+        margin: 34px 0 20px 0;
+      }
+
+      .referral-card {
+        position: relative;
+        max-width: 400px;
+        width: 100%;
+        background-color: #2c1b45;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+
+      .referral-card-coin-left {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .referral-card-content {
+        margin-left: 10px;
+      }
+
+      .referral-card-title {
+        font-size: 20px;
+        color: #fff;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        font-weight: 700;
+      }
+
+      .referral-card-subtitle {
+        font-size: 14px;
+        color: #fff;
+        margin: 5px 0 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .referral-card-coin-top-right {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        clip-path: circle(50% at 50% 50%);
+      }
+
+      .bottom-nav {
+        max-width: 430px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(82, 64, 105) 30%,
+          rgba(82, 64, 105) 60%,
+          rgba(41, 25, 66) 100%
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .bottom-nav .nav-container {
+        background-color: #0f0a28;
+        border-radius: 25px;
+        padding: 10px;
+        display: flex;
+        margin: 8px;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        max-width: 430px;
+      }
+
+      .selected {
+        padding: 10px;
+        background: linear-gradient(
+          to bottom,
+          rgba(82, 64, 105) 30%,
+          rgba(82, 64, 105) 60%,
+          rgba(41, 25, 66) 100%
+        );
+        border-radius: 10px;
+      }
+
+      .selected .nav-item {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      .nav-item {
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .nav-item i {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .nav-item span {
+        display: block;
+        font-size: 12px;
+      }
+
+      .nav-item:hover {
+        color: #ffc227;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="header-container">
+        <div class="header">
+          <img src="assets/coin.png" alt="Coin" class="coin-img" />
+          <h1 class="heading-primary">490960</h1>
+        </div>
+        <h2>Invite Friends</h2>
+      </div>
+      <div class="list-tile">
+        <div class="title-subtitle">
+          <div class="title">Invite a Friend</div>
+          <div class="subtitle">To earn more rewards</div>
+        </div>
+        <div class="copy-button-bg">
+          <button class="copy-button"><span>Copy Link</span></button>
+        </div>
+        <div class="circle top-left">
+          <img src="assets/coin.png" style="width: 100%" alt="" />
+        </div>
+        <div class="circle top-right">
+          <img
+            src="assets/coin.png"
+            style="
+              width: 100%;
+              z-index: 10;
+              border-radius: 50%;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            "
+            alt=""
+          />
+        </div>
+        <div class="circle middle">
+          <img src="assets/coin.png" style="width: 100%" alt="" />
+        </div>
+      </div>
+      <h4>Top Referrals</h4>
+      <div class="profile-card">
+        <div class="profile-item">
+          <div class="number">1</div>
+          <img src="assets/image.jpg" class="circular-image" alt="Profile" />
+          <div class="profile-title">Lemmyux</div>
+          <div class="right-content">
+            <img src="assets/coin.png" class="coin-image-card" alt="Coin" />
+            <span>49853416</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-item">
+          <div class="number">2</div>
+          <img src="assets/image.jpg" class="circular-image" alt="Profile" />
+          <div class="profile-title">Lemmyux</div>
+          <div class="right-content">
+            <img src="assets/coin.png" class="coin-image-card" alt="Coin" />
+            <span>49853416</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-item">
+          <div class="number">3</div>
+          <img src="assets/image.jpg" class="circular-image" alt="Profile" />
+          <div class="profile-title">Lemmyux</div>
+          <div class="right-content">
+            <img src="assets/coin.png" class="coin-image-card" alt="Coin" />
+            <span>49853416</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-item">
+          <div class="number">5</div>
+          <img src="assets/image.jpg" class="circular-image" alt="Profile" />
+          <div class="profile-title">Lemmyux</div>
+          <div class="right-content">
+            <img src="assets/coin.png" class="coin-image-card" alt="Coin" />
+            <span>49853416</span>
+          </div>
+        </div>
+      </div>
+      <h4><span style="color: #ffc227">0</span> Referrals Yet</h4>
+      <div class="referral-card">
+        <img src="assets/coin.png" class="referral-card-coin-left" alt="Coin" />
+        <div class="referral-card-content">
+          <h1 class="referral-card-title">Invite a Friend</h1>
+          <p class="referral-card-subtitle">
+            <span style="color: #ffc227">+2000 </span>for you when you invite a
+            friend
+          </p>
+        </div>
+        <div class="circle top-right" style="width: 50px; height: 50px">
+          <img
+            src="assets/coin.png"
+            style="
+              width: 100%;
+              z-index: 10;
+              border-radius: 50%;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            "
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="referral-card">
+        <img src="assets/coin.png" class="referral-card-coin-left" alt="Coin" />
+        <div class="referral-card-content">
+          <h1 class="referral-card-title">
+            Invite a Friend With Telegram Premium
+          </h1>
+          <p class="referral-card-subtitle">
+            <span style="color: #ffc227">+2000 </span>for you when you invite a
+            friend
+          </p>
+        </div>
+        <div class="circle top-right" style="width: 50px; height: 50px">
+          <img
+            src="assets/coin.png"
+            style="
+              width: 100%;
+              z-index: 10;
+              border-radius: 50%;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            "
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <div class="nav-container">
+        <a href="#tap" class="nav-item">
+          <i class="fa fa-home"></i>
+          <span>Tap</span>
+        </a>
+        <a href="#leaderboard" class="nav-item">
+          <i class="fa fa-trophy"></i>
+          <span>Leaderboard</span>
+        </a>
+        <div class="selected">
+          <a href="#referral" class="nav-item">
+            <i class="fa fa-user-plus"></i>
+            <span>Referral</span>
+          </a>
+        </div>
+        <a href="#tasks" class="nav-item">
+          <i class="fa fa-tasks"></i>
+          <span>Tasks</span>
+        </a>
+        <a href="#wallet" class="nav-item">
+          <img src="assets/coin.png" style="width: 20px" />
+          <span>Wallet</span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
