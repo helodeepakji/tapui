@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fighter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+
+        .nav {
+            width: 430px;
+            background-color: black;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            font-weight: lighter;
+        }
+
+        .box {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: large;
+        }
+
+        .box2 {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        h6 {
+            margin-left: 27px;
+        }
+
+        .content {
+            position: relative;
+            width: 430px;
+            height: 700px;
+            margin-right: -11px;
+            border-top: 2.5px solid #e611a6;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+
+        .inner-box {
+            margin-left: -8px;
+            width: 425px;
+            height: 698px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://img.freepik.com/free-vector/night-starry-sky-background_23-2148052059.jpg");
+            background-size: cover;
+            padding: 20px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 19px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgb(247, 162, 4);
+        }
+
+        .moon-bunny {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .circles {
+            display: flex;
+        }
+
+        .circle {
+            margin-top: 6px;
+            height: 37px;
+            width: 37px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+        }
+
+        .others {
+            margin-left: 250px;
+            margin-top: -22px;
+        }
+
+        .circle-image {
+            height: 37px;
+        }
+
+        .top {
+            margin-left: 48px;
+        }
+
+        .middle {
+            margin-left: 65px;
+        }
+
+        .bottom {
+            margin-left: 40px;
+        }
+
+        .pudgy {
+            margin-left: 120px;
+        }
+
+        .first {
+            display: flex;
+        }
+
+        .moon-bunny img {
+            height: 35px;
+        }
+
+        .content h6 {
+            margin-top: 5px;
+            margin-left: 6px;
+        }
+
+        .progress {
+            width: 28%;
+            height: 4px;
+            margin: auto;
+            margin-top: 35px;
+            border-radius: 6px;
+            border-radius: 10px;
+        }
+
+        img {
+            height: 220px;
+        }
+
+        .img2 {
+            margin-left: 75px;
+            height: 230px;
+        }
+
+        .fighters {
+            display: flex;
+            margin: 130px 0 0 18px;
+            margin-bottom: -35px;
+        }
+
+        #shadow {
+            margin-top: -65px;
+            border-radius: 50%;
+            width: 360px;
+            height: 125px;
+            background: black;
+            opacity: 0.5;
+            -webkit-filter: blur(10px);
+            -webkit-transform: scale(1, 0.2);
+        }
+
+        .one {
+            background-color: grey;
+            height: 6px;
+            width: 30%;
+            border-radius: 15px;
+            margin-left: -10px;
+        }
+
+        .two {
+            margin-right: -10px;
+        }
+
+        .progress-bar {
+            background-color:#f838be;
+            padding: 1%;
+            text-align: right;
+            border-radius: 15px;
+        }
+
+        .left {
+            width: 70%;
+        }
+
+        .right {
+            width: 30%;
+        }
+
+        .level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            width: 85px;
+            opacity: 0.8;
+            margin-top: 13px;
+            border-top: 2.5px solid #e611a6;
+            border-radius: 18px;
+            color: #fff;
+            margin-right: 56px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .level p {
+            font-size: small;
+            font-weight: bolder;
+            margin-left: 3px;
+            margin-top: 10px;
+        }
+
+        .level i {
+            color: #7a2ca3;
+        }
+
+        .level .logo {
+            font-size: 25px;
+            margin-left: 10px;
+        }
+
+        .level .text {
+            font-weight: 500;
+            color: #fff;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 320px) {
+            .nav {
+                width: 250px;
+            }
+
+            .level {
+                margin-left: 10px;
+                margin-top: 15px;
+            }
+
+            .box {
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: small;
+            }
+
+            .box2 {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            .content h6 {
+                margin-top: 15px;
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-sm">
+        <div class="nav container-sm">
+            <div class="box">Cancel</div>
+            <div class="box box2">
+                Hypermove
+                <h6>Bot</h6>
+            </div>
+            <div class="box">
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </div>
+            <div class="content container-sm">
+                <div class="inner-box">
+                    <!-- first section -->
+                    <div class="first">
+                        <div class="moon-bunny">
+                            <img src="assets/moon.png">
+                        </div>
+                        <h6>Moon Bunny</h6>
+                        <h2>VS</h2>
+                        <div class="moon-bunny pudgy">
+                            <img src="assets/moon.png">
+                        </div>
+                        <h6>Pudgy Bunny</h6>
+                    </div>
+                    <!-- second-section -->
+                    <div class="first">
+                        <div class="progress one">
+                            <div class="progress-bar left"></div>
+                        </div>
+                        <div class="level">
+                            <div class="text">
+                                <p>01:00</p>
+                            </div>
+                        </div>
+                        <div class="progress one two">
+                            <div class="progress-bar right"></div>
+                        </div>
+                    </div>
+                    <!-- third section -->
+                    <div class="fighters">
+                        <div class="fighter1">
+                            <img src="assets/fighter1.png" alt="">
+                        </div>
+                        <div class="fighter1">
+                            <img class="img2" src="assets/fighter2.png" alt="">
+                        </div>
+                    </div>
+                    <div id="shadow"></div>
+                    <!-- fourth section -->
+                    <div class="circles">
+                        <!-- arrow -->
+                        <div class="arrows">
+                            <div class="circle">
+                                <img class="circle-image" src="assets/up.png" alt="">
+                            </div>
+                            <div class="circle">
+                                <img class="circle-image" src="assets/down.png" alt="">
+                            </div>
+                        </div>
+                        <div class="others">
+                            <div class="circle top">
+                                <img class="circle-image" src="assets/circle1.png" alt="">
+                            </div>
+                            <div class="circle middle">
+                                <img class="circle-image" src="assets/circle2.png" alt="">
+                            </div>
+                            <div class="circle bottom">
+                                <img class="circle-image" src="assets/circle3.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress"> </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--script-->
+    <script>
+        document
+            .getElementById('avatar')
+            .addEventListener('click', function (event) {
+                const container = document.getElementById('animation-container')
+                const plus10 = document.createElement('div')
+
+                plus10.textContent = '+10'
+                plus10.className = 'plus10'
+
+                // Calculate click position relative to the container
+                const rect = container.getBoundingClientRect()
+                const x = event.clientX - rect.left
+                const y = event.clientY - rect.top
+
+                // Set the initial position of the new element
+                plus10.style.left = `${x}px`;
+                plus10.style.top = `${y}px`;
+
+                container.appendChild(plus10)
+
+                // Trigger the animation
+                requestAnimationFrame(() => {
+                    plus10.classList.add('show')
+                })
+
+                // Remove the element after the animation completes
+                setTimeout(() => {
+                    container.removeChild(plus10)
+                }, 1000)
+            })
+        function increament() {
+            var point = document.getElementById('point')
+            var currentPoint = parseInt(point.textContent)
+            var newpoint = currentPoint + 10
+            point.innerHTML = newpoint
+        }
+    </script>
+</body>
+
+</html>
