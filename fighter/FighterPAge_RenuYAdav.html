@@ -185,7 +185,7 @@
         }
 
         .two {   
-            
+
 
             margin-right: -10px;
         }
@@ -351,42 +351,7 @@
     </div>
     <!--script-->
     <script>
-        document
-            .getElementById('avatar')
-            .addEventListener('click', function (event) {
-                const container = document.getElementById('animation-container')
-                const plus10 = document.createElement('div')
-
-                plus10.textContent = '+10'
-                plus10.className = 'plus10'
-
-                // Calculate click position relative to the container
-                const rect = container.getBoundingClientRect()
-                const x = event.clientX - rect.left
-                const y = event.clientY - rect.top
-
-                // Set the initial position of the new element
-                plus10.style.left = `${x}px`;
-                plus10.style.top = `${y}px`;
-
-                container.appendChild(plus10)
-
-                // Trigger the animation
-                requestAnimationFrame(() => {
-                    plus10.classList.add('show')
-                })
-
-                // Remove the element after the animation completes
-                setTimeout(() => {
-                    container.removeChild(plus10)
-                }, 1000)
-            })
-        function increament() {
-            var point = document.getElementById('point')
-            var currentPoint = parseInt(point.textContent)
-            var newpoint = currentPoint + 10
-            point.innerHTML = newpoint
-        }
+        
     </script>
 </body>
 
