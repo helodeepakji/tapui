@@ -269,8 +269,8 @@
 
         .shield {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 95px;
+            height: 95px;
             background-image: url('assets/shield.png');
             background-size: cover;
             pointer-events: none;
@@ -466,7 +466,7 @@
 
             
             const rect = fighter1.getBoundingClientRect();
-            const x = rect.width / 2; 
+            const x = rect.width / 2-5; 
             const y = rect.height / 2-80; 
 
            
@@ -474,7 +474,7 @@
             shield.style.top = `${y}px`;
 
            
-            fighter1.appendChild(shield);
+            fighter1.appendChild(shield); 
 
             
             requestAnimationFrame(() => {
