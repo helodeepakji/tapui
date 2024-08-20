@@ -162,7 +162,7 @@
 
 
         #shadow {
-            
+
             margin-top: -65px;
             border-radius: 50%;
             width: 360px;
@@ -253,7 +253,24 @@
             margin-top: 100px;
         }
 
-       
+        .lightning {
+            position: absolute;
+            width: 35px;
+            height: 30px;
+            background-image: url('assets/lightning.png');
+            background-size: cover;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 10;
+        }
+
+        .lightning.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
 
         @media (max-width: 320px) {
             .nav {
@@ -347,7 +364,7 @@
                         </div>
                         <div class="others">
                             <div class="circle top">
-                                <img class="circle-image" src="assets/circle1.png" alt="">
+                                <img id="sparkle" class="circle-image" src="assets/circle1.png" alt="">
                             </div>
                             <div class="circle middle">
                                 <img class="circle-image" src="assets/circle2.png" alt="">
@@ -376,7 +393,36 @@
             const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
             fighter.style.top = (currentTop + 50) + 'px';
         });
-        
+
+        document.querySelector('.circle.top').addEventListener('click', function () {
+            const fighter1 = document.querySelector('.fighter1');
+
+            const lightning = document.createElement('div');
+            lightning.className = 'lightning';
+
+
+            const rect = fighter1.getBoundingClientRect();
+            const x = rect.width / 2 + 35;
+            const y = rect.height / 2 - 60;
+
+
+            lightning.style.left = `${x}px`;
+            lightning.style.top = `${y}px`;
+
+            fighter1.appendChild(lightning);
+
+
+            requestAnimationFrame(() => {
+                lightning.classList.add('show');
+            });
+
+
+            setTimeout(() => {
+                fighter1.removeChild(lightning);
+            }, 500);
+        });
+
+
 
     </script>
 </body>
