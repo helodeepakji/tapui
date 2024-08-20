@@ -267,11 +267,31 @@
             animation: anim 1s infinite;
         }
 
+        .shield {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('assets/shield.png');
+            background-size: cover;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease, transform 0.5s ease, left 0.5s ease, top 0.5s ease;
+            z-index: 10;
+        }
+
+        .shield.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+
         @keyframes anim {
-            0%{
+            0% {
                 left: 80px;
             }
-            100%{
+
+            100% {
                 left: 200px;
             }
         }
@@ -355,9 +375,6 @@
                         <div class="fighter1">
                             <img src="assets/fighter1.png" alt="">
                         </div>
-                        <div class="lightning">
-
-                        </div>
                         <div class="fighter1">
                             <img class="img2" src="assets/fighter2.png" alt="">
                         </div>
@@ -398,7 +415,7 @@
             const fighter = document.querySelector('.fighter1');
             const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
 
-            if(currentTop > (-50)){
+            if (currentTop > (-50)) {
                 fighter.style.top = (currentTop - 50) + 'px';
             }
         });
@@ -406,12 +423,12 @@
         document.querySelector('.move-down').addEventListener('click', function () {
             const fighter = document.querySelector('.fighter1');
             const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
-            if(currentTop <= 50){
+            if (currentTop <= 50) {
                 fighter.style.top = (currentTop + 50) + 'px';
             }
-            
-        });
 
+        });
+        // first circle script
         document.querySelector('.circle.top').addEventListener('click', function () {
             const fighter1 = document.querySelector('.fighter1');
 
@@ -439,7 +456,36 @@
                 fighter1.removeChild(lightning);
             }, 500);
         });
+        // second circle script
+        document.querySelector('.circle.middle').addEventListener('click', function () {
+            const fighter1 = document.querySelector('.fighter1');
 
+            
+            const shield = document.createElement('div');
+            shield.className = 'shield';
+
+            
+            const rect = fighter1.getBoundingClientRect();
+            const x = rect.width / 2; 
+            const y = rect.height / 2-80; 
+
+           
+            shield.style.left = `${x}px`;
+            shield.style.top = `${y}px`;
+
+           
+            fighter1.appendChild(shield);
+
+            
+            requestAnimationFrame(() => {
+                shield.classList.add('show');
+            });
+
+            
+            setTimeout(() => {
+                fighter1.removeChild(shield);
+            }, 1000); 
+        });
 
 
     </script>
