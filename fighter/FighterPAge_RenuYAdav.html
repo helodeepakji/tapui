@@ -397,13 +397,19 @@
         document.querySelector('.move-up').addEventListener('click', function () {
             const fighter = document.querySelector('.fighter1');
             const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
-            fighter.style.top = (currentTop - 50) + 'px';
+
+            if(currentTop > (-50)){
+                fighter.style.top = (currentTop - 50) + 'px';
+            }
         });
 
         document.querySelector('.move-down').addEventListener('click', function () {
             const fighter = document.querySelector('.fighter1');
             const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
-            fighter.style.top = (currentTop + 50) + 'px';
+            if(currentTop <= 50){
+                fighter.style.top = (currentTop + 50) + 'px';
+            }
+            
         });
 
         document.querySelector('.circle.top').addEventListener('click', function () {
