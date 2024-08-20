@@ -110,6 +110,7 @@
 
         .circle-image {
             height: 37px;
+            cursor: pointer;
         }
 
         .top {
@@ -159,8 +160,9 @@
             height: 230px;
         }
 
-        
+
         #shadow {
+            
             margin-top: -65px;
             border-radius: 50%;
             width: 360px;
@@ -179,14 +181,14 @@
             margin-left: -10px;
         }
 
-        .two {   
+        .two {
 
 
             margin-right: -10px;
         }
- 
+
         .progress-bar {
-            background-color:#f838be;
+            background-color: #f838be;
             padding: 1%;
             text-align: right;
             border-radius: 15px;
@@ -236,6 +238,22 @@
             color: #fff;
             margin-top: 2px;
         }
+
+        .fighters {
+            display: flex;
+            margin: 60px 0 0 30px;
+        }
+
+        .fighter1 {
+            position: relative;
+            transition: top 0.2s ease;
+        }
+
+        .down {
+            margin-top: 100px;
+        }
+
+       
 
         @media (max-width: 320px) {
             .nav {
@@ -310,6 +328,7 @@
                         <div class="fighter1">
                             <img src="assets/fighter1.png" alt="">
                         </div>
+                        <div class="lightning"></div>
                         <div class="fighter1">
                             <img class="img2" src="assets/fighter2.png" alt="">
                         </div>
@@ -320,10 +339,10 @@
                         <!-- arrow -->
                         <div class="arrows">
                             <div class="circle">
-                                <img class="circle-image" src="assets/up.png" alt="">
+                                <img class="circle-image move-up" src="assets/up.png" alt="">
                             </div>
                             <div class="circle">
-                                <img class="circle-image" src="assets/down.png" alt="">
+                                <img class="circle-image move-down" src="assets/down.png" alt="">
                             </div>
                         </div>
                         <div class="others">
@@ -338,7 +357,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="progress"> </div>
+                    <div class="progress down"> </div>
 
                 </div>
             </div>
@@ -346,7 +365,19 @@
     </div>
     <!--script-->
     <script>
+        document.querySelector('.move-up').addEventListener('click', function () {
+            const fighter = document.querySelector('.fighter1');
+            const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
+            fighter.style.top = (currentTop - 50) + 'px';
+        });
+
+        document.querySelector('.move-down').addEventListener('click', function () {
+            const fighter = document.querySelector('.fighter1');
+            const currentTop = parseInt(window.getComputedStyle(fighter).top) || 0;
+            fighter.style.top = (currentTop + 50) + 'px';
+        });
         
+
     </script>
 </body>
 
